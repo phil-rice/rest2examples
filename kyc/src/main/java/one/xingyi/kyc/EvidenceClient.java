@@ -2,7 +2,6 @@ package one.xingyi.kyc;
 import one.xingyi.core.http.JavaHttpClient;
 import one.xingyi.core.httpClient.HttpServiceCompletableFuture;
 import one.xingyi.core.utils.IdAndValue;
-
 import one.xingyi.kyc.evidence.client.view.EvidenceDetailsPostView;
 import one.xingyi.kyc.evidence.client.view.EvidencePost;
 import one.xingyi.kyc.evidence.client.view.EvidenceView;
@@ -27,5 +26,13 @@ public class EvidenceClient {
 
         IdAndValue<EvidencePost> initialCreate = EvidencePost.create(service, post).get();
         System.out.println(initialCreate.id + " for " + initialCreate.t.xingYi().render("json", initialCreate.t));
+        System.out.println("Id was:        "+ initialCreate.id);
+
+        IdAndValue<EvidencePost> secondCreate = EvidencePost.create(service, post).get();
+        System.out.println("second id was: "+ secondCreate.id);
+
+        System.out.println("From store: "+ EvidenceView.get(service, secondCreate.id,res->res.xingYi().render("json", res)).get());
+
+
     }
 }
