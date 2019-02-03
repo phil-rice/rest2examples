@@ -1,12 +1,14 @@
-package one.xingyi.kyc.evidence;
+package one.xingyi.kyc.evidence.main;
 import one.xingyi.core.client.IResourceList;
 import one.xingyi.core.http.ServiceRequest;
 import one.xingyi.core.marshelling.JsonParser;
 import one.xingyi.core.store.ControllerUsingMap;
 import one.xingyi.core.utils.IdAndValue;
-import one.xingyi.kyc.evidence.server.companion.EvidenceCompanion;
-import one.xingyi.kyc.evidence.server.controller.IEvidenceController;
-import one.xingyi.kyc.evidence.server.domain.Evidence;
+import one.xingyi.kyc.evidence.main.server.companion.EvidenceCompanion;
+import one.xingyi.kyc.evidence.main.server.controller.IEvidenceController;
+import one.xingyi.kyc.evidence.main.server.domain.Evidence;
+import one.xingyi.kyc.evidence.model.EvidenceFieldDigestor;
+import one.xingyi.kyc.evidence.model.WholeEvidenceDigestor;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,7 +23,7 @@ public class EvidenceController<J> extends ControllerUsingMap<Evidence> implemen
     }
 
     @Override public String stateFn(Evidence entity) { return ""; }
-    @Override protected Evidence prototype(String id) { return new Evidence("", "", IResourceList.create()); }
+    @Override protected Evidence prototype(String id) { return new Evidence("", "", "",IResourceList.create()); }
     @Override public CompletableFuture<IdAndValue<Evidence>> createWithoutId(Evidence value) {
         String id = wholeEvidenceDigestor.apply(value);
         store.put(id, value);

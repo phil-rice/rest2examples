@@ -4,7 +4,7 @@ import one.xingyi.core.annotations.Get;
 import one.xingyi.core.annotations.Resource;
 import one.xingyi.core.sdk.IXingYiResourceDefn;
 
-@Resource(bookmark = "/immutable", rootUrl = "/immutable/{id}")
+@Resource(bookmark = "/immutable", rootUrl = "{host}/immutable/{id}")
 @Get(mustExist = false)
 @CreateWithoutId(url = "/immutable")
 public interface IImmutableStringDefn extends IXingYiResourceDefn {

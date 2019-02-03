@@ -1,4 +1,4 @@
-package one.xingyi.kyc.evidence;
+package one.xingyi.kyc.evidence.details;
 
 import one.xingyi.core.annotations.View;
 import one.xingyi.core.sdk.IXingYiViewDefn;
@@ -7,5 +7,6 @@ public interface IEvidenceDetailsPostViewDefn extends IXingYiViewDefn<IEvidenceD
     String name();
     String value();
     String mime();
-    String hide();
+    String digest();
+    String searchable();
 }

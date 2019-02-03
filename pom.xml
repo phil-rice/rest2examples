@@ -12,7 +12,6 @@
     <modules>
         <module>kyc</module>
         <module>democlient</module>
-        <module>kyc</module>
     </modules>
 
     <build>

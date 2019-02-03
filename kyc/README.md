@@ -17,13 +17,8 @@ Get returns the values of the identity in time order with audit reason id. Note 
 
 ## ImmutableString
 
-
-## Purpose
-Get /purpose/<purpose> returns [ {name: "<someFieldName>" , type: "<someMimeType>", digestIt: true/false, optional: true/false ]
-Just delegates the heavy lifting to identity and immutable string (purpose lives in immutable string, it is accessed via identity)
-
-## Register
-So this is a website. Or even cooler an android app
+## kyc
+Binds it all together
 
 Some ID + Purpose + Name/Values
 Needs an ID (where does it get this from..?)

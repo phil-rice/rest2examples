@@ -2,8 +2,8 @@ package one.xingyi.kyc;
 import one.xingyi.core.endpoints.EndpointConfig;
 import one.xingyi.core.server.SimpleServer;
 import one.xingyi.json.Json;
-import one.xingyi.kyc.evidence.EvidenceController;
-import one.xingyi.kyc.evidence.EvidenceDetailsController;
+import one.xingyi.kyc.evidence.main.EvidenceController;
+import one.xingyi.kyc.evidence.details.EvidenceDetailsController;
 import one.xingyi.kyc.identityValue.IdentityController;
 import one.xingyi.kyc.identityValue.ValueController;
 import one.xingyi.kyc.identityValue.query.IdentityValueStore;
@@ -21,8 +21,8 @@ public class EvidenceStore {
         IdentityController identityController = new IdentityController(json, identityValueStore);
         ValueController valueController = new ValueController(identityValueStore);
         SimpleServer server = new EvidenceServer<Object>(config,
-                evidenceController,
                 evidenceDetailsController,
+                evidenceController,
                 identityController, identityController, valueController, //CQRS work around
                 immutableStore).simpleServer(9000);
         server.start();
