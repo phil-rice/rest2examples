@@ -11,7 +11,7 @@ import one.xingyi.kyc.immutableString.ImmutableStore;
 public class EvidenceStore {
     public static void main(String[] args) {
         Json json = new Json();
-        EndpointConfig<Object> config = EndpointConfig.defaultConfig(json, json);
+        EndpointConfig<Object> config = EndpointConfig.defaultConfig(json);
         IdentityValueStore identityValueStore = new IdentityValueStore();
 
         ImmutableStore immutableStore = new ImmutableStore();

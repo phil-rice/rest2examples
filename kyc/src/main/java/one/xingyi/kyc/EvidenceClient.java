@@ -2,6 +2,7 @@ package one.xingyi.kyc;
 import one.xingyi.core.http.JavaHttpClient;
 import one.xingyi.core.httpClient.HttpServiceCompletableFuture;
 import one.xingyi.core.utils.IdAndValue;
+import one.xingyi.json.Json;
 import one.xingyi.kyc.evidence.details.client.view.EvidenceDetailsPostView;
 import one.xingyi.kyc.evidence.main.client.view.EvidencePost;
 import one.xingyi.kyc.evidence.main.client.view.EvidenceView;
@@ -10,7 +11,7 @@ import java.util.concurrent.ExecutionException;
 public class EvidenceClient {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        HttpServiceCompletableFuture service = HttpServiceCompletableFuture.defaultService("http://localhost:9000", JavaHttpClient.client);
+        HttpServiceCompletableFuture service = HttpServiceCompletableFuture.lensService("http://localhost:9000", new Json(),JavaHttpClient.client);
 //        String customerSalt = SaltView.create(service, "myCustomerId").get().salt();
         EvidencePost prototype = EvidencePost.get(service, "prototype", x -> x).get();
         EvidenceDetailsPostView prototypeDetails = EvidenceDetailsPostView.get(service, "prototype", x -> x).get();
